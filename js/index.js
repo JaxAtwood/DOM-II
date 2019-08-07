@@ -1,4 +1,4 @@
-//mouseover event listener
+//**********mouseover event listener
 let test = document.querySelectorAll("nav") [0];
 test.addEventListener ('mouseover', function(event) {
     event.target.style.color = "hotpink";
@@ -9,57 +9,84 @@ test.addEventListener ('mouseover', function(event) {
 }, false);
 
 
-//keydown event listener
-document.querySelector("body").addEventListener("keydown", myFunction);
 
+
+//********Keydown event listener <---------------two in one!!!!
+document.querySelector("body").addEventListener("keydown", myFunction);
 function myFunction() {
   document.querySelector("body").style.backgroundColor = "hotpink";
 }
 
-//WHYYYY YOU NOOOOO WOOOOORRRRKKKKKKKK!??!?!!?!!?!
-// let placeHolder = document.querySelector('body');
-// placeHolder.addEventListener('keydown', function(event) {
-//     event.textContent += (`${event.code}`);
-// //   console.log(`this is my keypress:${event.code}`);
-// })
+document.querySelector("body").addEventListener("keyup", myFunctionBack);
+function myFunctionBack () {
+    document.querySelector("body").style.backgroundColor = "white";
+}
 
 
-//wheel event listener
+
+
+//*********wheel event listener
 document.querySelector("h1").addEventListener("wheel", myFunctionAgain);
-
 function myFunctionAgain() {
- this.style.fontSize = "50px";
+ document.style.fontSize = "100px"; 
 }
 
-//drag / drop event listener
 
 
 
-//load event listener
-
-document.querySelector("body").addEventListener("load", myFunctionThird);
-
-function myFunctionThird() {
-  document.querySelector("body")
-  console.log("Page is loaded.");
-}
-
-//focus event listener
+//********mousedown event listener
+let clickIt = document.getElementsByTagName("h2") [0];
+clickIt.addEventListener ('mousedown', function(doIt) {
+    doIt.target.style.color = "hotpink";
+})
 
 
 
-//resize event listener
+
+
+//********mouseup event listener
+let unClickIt = document.getElementsByTagName("h2") [0];
+unClickIt.addEventListener ('mouseup', function(unDoIt) {
+    unDoIt.target.style.color = "black";
+})
 
 
 
-//scroll event listener
+
+
+//********focus and blur event listener   <----------------------------This is two events in one!
+const navClicker = document.querySelectorAll("nav") [0];
+
+navClicker.addEventListener('focus', (doAThing) => {
+  doAThing.target.style.background = 'pink';    
+}, true);
+
+navClicker.addEventListener('blur', (doAThing) => {
+  doAThing.target.style.color = 'black';    
+}, true);
 
 
 
-//select event listener
+
+//********resize event listener
+window.addEventListener("resize", function(){
+    document.querySelector("body").style.backgroundColor = ("magenta");
+  }, true);
 
 
 
-//dblclick event listener
+
+//********click event listener
+document.addEventListener("click", function(){
+    document.querySelector("body").style.backgroundColor = ("purple");
+  }, true);
 
 
+
+
+//preventdefault()
+
+document.querySelector("nav").addEventListener("click", function(event){
+    event.preventDefault()
+    alert ("Nope");
+  });
